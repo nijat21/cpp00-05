@@ -6,12 +6,12 @@
 /*   By: nismayil <nismayil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 02:29:27 by nismayil          #+#    #+#             */
-/*   Updated: 2026/04/01 02:50:00 by nismayil         ###   ########.fr       */
+/*   Updated: 2026/04/01 19:14:50 by nismayil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "megaphone.hpp"
 #include <iostream>
+#include <string>
 
 /*
     $>./megaphone "shhhhh... I think the students are asleep..."
@@ -22,6 +22,17 @@
     * LOUD AND UNBEARABLE FEEDBACK NOISE *
     $>
 */
+
+class Megaphone {
+  private:
+    std::string msg;
+
+  public:
+    Megaphone();
+    Megaphone(std::string str);
+    void showMsg() const;
+    ~Megaphone();
+};
 
 Megaphone::Megaphone() {
     msg = "*LOUD AND UNBEARABLE FEEDBACK NOISE *";
