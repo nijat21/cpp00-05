@@ -5,7 +5,8 @@ int update_line(std::string &line, const std::string &s1, const std::string &s2,
         return 1;
     size_t pos = 0;
     while ((pos = line.find(s1, pos)) != std::string::npos) {
-        line = line.substr(0, pos) + s2 + line.substr(pos + s1.size());
+        line =
+            line.substr(0, pos) + s2 + line.substr(pos + s1.size()); // maybe erase, check for leaks
         pos += s2.size();
         found = true;
     }
