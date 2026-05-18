@@ -33,7 +33,7 @@ void Harl::error() {
               << std::endl;
 };
 
-void Harl::complain(std::string level) {
+void Harl::complain(const std::string level) {
     Level lvl = INVALID;
     switch (level[0]) {
     case 'D':

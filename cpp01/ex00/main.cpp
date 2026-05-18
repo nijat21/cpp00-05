@@ -1,6 +1,6 @@
-#include "Zombie.hpp"
 #include <iostream>
 #include <string>
+#include "Zombie.hpp"
 
 int main() {
     Zombie *heap_zombie = newZombie("Heap");

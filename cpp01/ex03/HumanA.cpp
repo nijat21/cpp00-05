@@ -2,7 +2,7 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-HumanA::HumanA(std::string str, Weapon &weapon) : name(str), wp(weapon) {
+HumanA::HumanA(const std::string str, Weapon &weapon) : name(str), wp(weapon) {
     std::cout << "Adress of club HumanA -> " << &wp << std::endl;
 }
 

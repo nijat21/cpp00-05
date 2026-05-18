@@ -5,21 +5,20 @@ int update_line(std::string &line, const std::string &s1, const std::string &s2,
         return 1;
     size_t pos = 0;
     while ((pos = line.find(s1, pos)) != std::string::npos) {
-        line =
-            line.substr(0, pos) + s2 + line.substr(pos + s1.size()); // maybe erase, check for leaks
-        pos += s2.size();
+        line = line.substr(0, pos) + s2 + line.substr(pos + s1.size());
+	pos += s2.size();
         found = true;
     }
     return 0;
 }
 
 int replace_substr(const std::string &filename, const std::string &s1, const std::string &s2) {
-    std::ifstream input(filename);
+    std::ifstream input(filename.c_str());
     if (!input) {
         std::cerr << "File couldn't be opened" << std::endl;
         return 1;
     }
-    std::ofstream output(filename + ".replace");
+    std::ofstream output((filename + ".replace").c_str());
     if (!output) {
         std::cerr << "File couldn't be created/opened" << std::endl;
         return 1;

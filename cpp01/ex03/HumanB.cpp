@@ -1,7 +1,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(std::string str) : name(str) {}
+HumanB::HumanB(const std::string str) : name(str) {}
 
 void HumanB::setWeapon(Weapon &weapon) {
     wp = &weapon;

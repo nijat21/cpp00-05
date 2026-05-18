@@ -1,11 +1,12 @@
 .PHONY: all clean fclean re
 
 CC=c++
-CFLAGS=-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
+VAL=valgrind --leak-check=full
 
 SRCS:=main.cpp Harl.cpp
 OBJS:=$(SRCS:%.cpp=%.o)
-NAME=harlFilter
+NAME=harl
 
 all: $(NAME)
 
@@ -15,7 +16,8 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-valgrind:
+val: $(NAME)
+	$(VAL) ./$(NAME) WARNING 
 
 clean:
 	rm -f $(OBJS)

@@ -6,6 +6,7 @@
 class Zombie {
   public:
     Zombie();
+    Zombie(const std::string str);
     ~Zombie();
 
     static int created;
@@ -13,7 +14,7 @@ class Zombie {
     static int announced;
 
     void announce();
-    void setName(std::string str);
+    void setName(const std::string str);
 
     static void showSummary();
 
@@ -22,6 +23,6 @@ class Zombie {
     std::string name;
 };
 
-Zombie *zombieHorde(int N, std::string name);
+Zombie *zombieHorde(int N, const std::string name);
 
 #endif

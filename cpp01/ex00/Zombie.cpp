@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-Zombie::Zombie(std::string str) {
-    name = str;
+Zombie::Zombie(const std::string str) : name(str) {
+	std::cout << name << " created" << std::endl;
 }
 
 Zombie::~Zombie() {

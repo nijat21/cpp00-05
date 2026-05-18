@@ -8,7 +8,7 @@ class Harl {
     Harl();
     ~Harl();
 
-    void complain(std::string level);
+    void complain(const std::string level);
 
   private:
     void debug(void);

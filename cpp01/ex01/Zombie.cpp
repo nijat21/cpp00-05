@@ -12,22 +12,26 @@ Zombie::Zombie() {
     std::cout << "allocating zombie: " << zIndex << std::endl;
 };
 
-void Zombie::setName(std::string str) {
-    named++;
-    std::cout << "naming zombie: " << zIndex << std::endl;
-    name = str;
+Zombie::Zombie(const std::string str) : name(str) {
+	std::cout << name << " created" << std::endl;
+}
+
+void Zombie::setName(const std::string str){
+	std::cout << "naming zombie: " << zIndex << std::endl;
+	name = str;
+    	named++;
 }
 
 void Zombie::showSummary() {
-    std::cout << "SUMMARY =============== allocated: " << created << "; named:" << named
+    	std::cout << "SUMMARY =============== allocated: " << created << "; named:" << named
               << "; announced: " << announced << "; ===============" << std::endl;
 }
 
 void Zombie::announce() {
-    announced++;
-    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	announced++;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::~Zombie() {
-    std::cout << name << " destroyed" << std::endl;
+    	std::cout << name << " destroyed" << std::endl;
 }

@@ -9,7 +9,7 @@ class Harl {
     ~Harl();
 
     enum Level { DEBUG, INFO, WARNING, ERROR, INVALID };
-    void complain(std::string level);
+    void complain(const std::string level);
 
   private:
     void debug(void);
