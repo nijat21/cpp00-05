@@ -63,7 +63,7 @@ Fixed::Fixed(const int num) {
  */
 Fixed::Fixed(const float num) {
     // std::cout << "Float contructor called" << std::endl;
-    float temp = std::roundf(num * (1 << fraction));
+    float temp = roundf(num * (1 << fraction));
     if (temp > std::numeric_limits<int>::max() || temp < std::numeric_limits<int>::min()) {
         std::cerr << "Overflow: fixedPoint resetted to 0" << std::endl;
         fixedPoint = 0;
