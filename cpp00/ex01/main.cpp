@@ -48,8 +48,7 @@ static void handle_add(PhoneBook *book) {
 
     if (!fill_in(&input))
         return;
-    Contact new_con;
-    new_con.add(input);
+    Contact new_con(input);
     (*book).add(new_con);
 }
 
@@ -57,7 +56,7 @@ static bool handle_search(PhoneBook *book) {
     (*book).print_contacts();
     std::string line;
     std::cout << "INDEX: " << std::flush;
-    if (!std::getline(std::cin, line) || line.empty() || !is_number(line)) {
+    if (!std::getline(std::cin, line)) { //|| line.empty() || !is_number(line)) {
         if (!is_number(line))
             std::cerr << "Index isn't a valid number" << std::endl;
         else
@@ -88,6 +87,8 @@ int main(int ac, char **av) {
         std::cout << "PROMPT (ADD, SEARCH, EXIT): " << std::flush;
         if (!std::getline(std::cin, line))
             return 0;
+        if (line.empty())
+            continue;
         line = concat_spaces(line);
         if (line.empty())
             continue;
