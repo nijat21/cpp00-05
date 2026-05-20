@@ -1,7 +1,8 @@
-.PHONY: all clean fclean re
+.PHONY: all val clean fclean re
 
 CC=c++
-CFLAGS=-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS=-Wall -Wextra -Werror -std=c++98 -g
+VAL=valgrind --leak-check=full
 
 SRCS:=main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS:=$(SRCS:%.cpp=%.o)
@@ -15,7 +16,8 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-valgrind:
+val: $(NAME)
+	$(VAL) ./$(NAME)
 
 clean:
 	rm -f $(OBJS)
